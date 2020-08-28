@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<script src="jogo.js"></script>
+			
+	</head>
+<!-- atributo onresize que faz com que a medida que o usuario redimensiona a pagina web, apareça largura e altura diferentes
+atraves da função ajustaTamanhoPalcoJogo
+
+A imagem aparecerá a cada 1 segundo-->
+
+	<body onresize="ajustaTamanhoPalcoJogo()">
+
+		<div class="painel">
+			<div class="vidas">
+				<img id="v1" src="imagens/coracao_cheio.png">
+				<img id="v2" src="imagens/coracao_cheio.png">
+				<img id="v3" src="imagens/coracao_cheio.png">
+			</div>
+
+			<div class="cronometro">Tempo restante: <span id="cronometro"></span> </div>
+		</div>
+
+
+	 	<script > 
+	 		//foi colocado aqui também para aparecer os segundos totais sem decrementar 1s.
+	 		//isso acontece porque como ali no span chama o id cronometro, o dom n foi criado ainda, então ele só será chamado quando for criado, criação essa que ocorre aqui embaixo.
+	 		document.getElementById('cronometro').innerHTML = tempo
+
+	 		//os mosquitos serão criados com o tempo definido pelo nivel que o usuario escreveu por isso o CriaMosquitoTempo
+
+	 		var CriaMosquito = setInterval(function() {
+	 			posicaoRandomica()
+	 		}, criaMosquitoTempo)
+	 	</script>
+	 	
+	</body>
+
+</html>
